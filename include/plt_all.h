@@ -9,8 +9,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #define PLT_H_INCLUDED
 #include <cmath>
 #include <vector>
-#include<fstream>
-
+//#include<fstream>
+#include"utilities.h"
 #include "matplotlibcpp.h"
 namespace plt = matplotlibcpp;
 
@@ -20,41 +20,38 @@ namespace plt = matplotlibcpp;
 ********************************************************/
 void plot_LLA_output() {
 
-  const unsigned n = 200;
-  std::ifstream infile;   
-  infile.open("data/output_predictions/LLA_output.dat");
-  if(infile.fail()) ///<-- checks to see if file opended 
-    { 
-      std::cout << "error!, the needed output file doesn't exist yet. !" << std::endl; 
-      exit (-1); ///<-- no point continuing if the file didn't open...
-    } 
- 
- std::vector<double> x(n), y(n);
-   for (unsigned i = 0; i < n; i++) {
-      
-    infile >> x[i];    
-    infile >> y[i]; 
-     
-  }
-  
-  infile.close();
- 
-  plt::title("LLO BFKL kernel Plot at scale $\\mu = 30$ GeV");
-  plt::xlabel("$\\nu$");
-  plt::ylabel("$\\omega(n=0, \\nu)$");
-  //plt::text(0.,-0.01, "QUANTAPLUSv1.0");
-   plt::xlim(-10, 10);
-   //plt::ylim(0, 1);
-   
-  plt::plot(x, y, {{"color", "red"}, {"label", "LLA_predictions"}, {"linestyle", "--"}});
- // plt::scatter(w, z, {{"color", "blue"}, {"label", "Sine wave"}});
-  plt::legend();
-   plt::savefig("data/output_predictions/plots/LLA_predictions.pdf");
-   printf("-----------------------------------------------------\n");
-   printf("the plot has been saved in data/output_predictions/plots/ directory\n");
-   printf("-----------------------------------------------------\n");
-  plt::show();
-  
+	std::string path_to_data{"data/output_predictions/LLA_output.dat"};
+
+	const unsigned n = countLinesInFile(path_to_data);
+
+	Input infile(path_to_data);   
+
+
+	std::vector<double> x(n), y(n);
+	for (unsigned i = 0; i < n; i++) {
+		infile.getData >> x[i];    
+		infile.getData >> y[i]; 
+
+	}
+
+	//infile.close();
+
+	plt::title("LLO BFKL kernel Plot at scale $\\mu = 30$ GeV");
+	plt::xlabel("$\\nu$");
+	plt::ylabel("$\\omega(n=0, \\nu)$");
+	//plt::text(0.,-0.01, "QUANTAPLUSv1.0");
+	plt::xlim(-10, 10);
+	//plt::ylim(0, 1);
+
+	plt::plot(x, y, {{"color", "red"}, {"label", "LLA_predictions"}, {"linestyle", "--"}});
+	// plt::scatter(w, z, {{"color", "blue"}, {"label", "Sine wave"}});
+	plt::legend();
+	plt::savefig("data/output_predictions/plots/LLA_predictions.pdf");
+	printf("-----------------------------------------------------\n");
+	printf("the plot has been saved in data/output_predictions/plots/ directory\n");
+	printf("-----------------------------------------------------\n");
+	plt::show();
+
 }
 
 /********************************************************
@@ -62,40 +59,35 @@ void plot_LLA_output() {
 ********************************************************/
 void plot_NLA_output() {
 
-  const unsigned n = 200;
-  std::ifstream infile;   
-  infile.open("data/output_predictions/NLA_output.dat");
-  if(infile.fail()) ///<-- checks to see if file opended 
-    { 
-      std::cout << "error!, the needed output file doesn't exist yet. !" << std::endl; 
-      exit (-1); ///<-- no point continuing if the file didn't open...
-    } 
+	std::string path_to_data{"data/output_predictions/NLA_output.dat"};
+
+	const unsigned n = countLinesInFile(path_to_data);
+
+	Input infile(path_to_data);
  
- std::vector<double> x(n), y(n);
-   for (unsigned i = 0; i < n; i++) {
-      
-    infile >> x[i];    
-    infile >> y[i]; 
-     
-  }
-  
-  infile.close();
- 
-  plt::title("NLO BFKL kernel Plot at scale $\\mu = 30$ GeV");
-  plt::xlabel("$\\nu$");
-  plt::ylabel("$\\omega(n=0, \\nu)$");
-  //plt::text(0.,-0.01, "QUANTAPLUSv1.0");
-   plt::xlim(-10, 10);
-   //plt::ylim(0, 1);
-   
-  plt::plot(x, y, {{"color", "red"}, {"label", "LLA_predictions"}, {"linestyle", "--"}});
- // plt::scatter(w, z, {{"color", "blue"}, {"label", "Sine wave"}});
-  plt::legend();
-   plt::savefig("data/output_predictions/plots/NLA_predictions.pdf");
-   printf("-----------------------------------------------------\n");
-   printf("the plot has been saved in data/output_predictions/plots/ directory\n");
-   printf("-----------------------------------------------------\n");
-  plt::show();
+	std::vector<double> x(n), y(n);
+	for (unsigned i = 0; i < n; i++) {
+		infile.getData >> x[i];    
+		infile.getData >> y[i]; 
+
+	}
+
+
+	plt::title("NLO BFKL kernel Plot at scale $\\mu = 30$ GeV");
+	plt::xlabel("$\\nu$");
+	plt::ylabel("$\\omega(n=0, \\nu)$");
+	//plt::text(0.,-0.01, "QUANTAPLUSv1.0");
+	plt::xlim(-10, 10);
+	//plt::ylim(0, 1);
+
+	plt::plot(x, y, {{"color", "red"}, {"label", "LLA_predictions"}, {"linestyle", "--"}});
+	// plt::scatter(w, z, {{"color", "blue"}, {"label", "Sine wave"}});
+	plt::legend();
+	plt::savefig("data/output_predictions/plots/NLA_predictions.pdf");
+	printf("-----------------------------------------------------\n");
+	printf("the plot has been saved in data/output_predictions/plots/ directory\n");
+	printf("-----------------------------------------------------\n");
+	plt::show();
   
 }
 #endif
