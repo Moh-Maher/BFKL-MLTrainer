@@ -13,7 +13,6 @@
   - [Predictions](#predictions)
   - [Model Training](#model-training)
   - [Plotting](#plotting)
-- [Contributing](#contributing)
 - [License](#license)
 
 ## Getting Started
@@ -78,10 +77,6 @@ If you choose option 2, you can:
 ### Plotting
 
 If you choose option 3, you can create plots for LLA/NLA predictions by compiling and running the plotting code (`src/plotting.cpp`) with Python integration.
-
-## Contributing
-
-Contributions to this project are welcome! Please follow the [contributing guidelines](CONTRIBUTING.md) for details on how to contribute.
 
 ## License
 
