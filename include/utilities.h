@@ -2,8 +2,8 @@
 by:  Mohammed Maher Abdelrahim Mohammed                                         
 -----------------------------------------------------------------------*/
 #pragma once
-#ifndef UTILITIES_H
-#define UTILITIES_H
+#ifndef INCLUDE_UTILITIES_H
+#define INCLUDE_UTILITIES_H
  
 #include<string>
 #include<sstream>

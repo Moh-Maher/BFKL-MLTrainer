@@ -8,8 +8,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
      mohammed.maher@unical.it                                          */
      
 #pragma once
-#ifndef BFKLKERNEL_H 
-#define BFKLKERNEL_H
+#ifndef INCLUDE_BFKLKERNEL_H 
+#define INCLUDE_BFKLKERNEL_H
 #include<cmath>
 #include<complex>
 #include <functional>

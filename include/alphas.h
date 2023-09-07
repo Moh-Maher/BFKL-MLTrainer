@@ -1,6 +1,6 @@
  
-#ifndef ALPHAS_H
-#define ALPHAS_H
+#ifndef INCLUDE_ALPHAS_H
+#define INCLUDE_ALPHAS_H
 #include<iostream>
 #include<cmath>
 #include"constants.h"

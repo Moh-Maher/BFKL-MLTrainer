@@ -17,8 +17,8 @@ nu_values = np.arange(-100, 101)
 new_feature_values = pd.DataFrame({
     'n': [0] * len(nu_values),
     'nu': nu_values,
-    'Y': [5.5] * len(nu_values),
-    'MuR': [30.0] * len(nu_values),
+    'Y': [4.5] * len(nu_values),
+    'MuR': [65.0] * len(nu_values),
 })
 
 # Predict scattering amplitudes for the new feature values using the Random Forest model

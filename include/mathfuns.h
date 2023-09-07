@@ -5,8 +5,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
      VIA P. BUCCI, CUBO 31 C, I-87036 COSENZA, ITALY
      mohammed.maher@unical.it                                          */
 #pragma once
-#ifndef FUNCTIONS_H
-#define FUNCTIONS_H
+#ifndef INCLUDE_FUNCTIONS_H
+#define INCLUDE_FUNCTIONS_H
 //#include<cmath>
 #include<iostream>
 #include<cmath>

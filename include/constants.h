@@ -1,4 +1,4 @@
-/*constants.h is a part of MLiftBFKL 
+/*constants.h is a part of BFKL-MLTrainer 
 
 usage: define some Physical and mathematical fundamental constants.
 
@@ -6,8 +6,8 @@ by:  Mohammed Maher Abdelrahim Mohammed
                                           */
      
 #pragma once
-#ifndef CONSTANTS_H
-#define CONSTANTS_H
+#ifndef INCLUDE_CONSTANTS_H
+#define INCLUDE_CONSTANTS_H
 //#include<cmath>
 /*=============================================================
                       Mathematical constants
