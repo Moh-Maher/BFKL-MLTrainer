@@ -9,12 +9,13 @@ by:  Mohammed Maher Abdelrahim Mohammed
 #define INCLUDE_PLT_H
 #include <cmath>
 #include <vector>
+#include <cstring>
 //#include<fstream>
 #include"utilities.h"
 #include "matplotlibcpp.h"
 namespace plt = matplotlibcpp;
 
-
+ 
 /********************************************************
                ploting LLA BFKL kernel
 ********************************************************/
@@ -35,10 +36,17 @@ void plot_LLA_output() {
 	}
 
 	//infile.close();
-
-	plt::title("LLO BFKL kernel Plot at scale $\\mu = 30$ GeV");
+	Input meta_data("data/data_preparation/LLA_meta_data.txt");
+	int N{0};
+	double MU{0.0};
+	meta_data.getData >> N;
+	meta_data.getData >> MU;    
+	
+	std::string n_value = std::to_string(N);
+	std::string mu_value = std::to_string(MU);
+	plt::title("LLO BFKL kernel Plot at scale $\\mu = $"+mu_value+" GeV");
 	plt::xlabel("$\\nu$");
-	plt::ylabel("$\\omega(n=0, \\nu)$");
+	plt::ylabel("$\\omega(n="+n_value+", \\nu)$");
 	//plt::text(0.,-0.01, "QUANTAPLUSv1.0");
 	plt::xlim(-10, 10);
 	//plt::ylim(0, 1);
@@ -71,11 +79,18 @@ void plot_NLA_output() {
 		infile.getData >> y[i]; 
 
 	}
-
-
-	plt::title("NLO BFKL kernel Plot at scale $\\mu = 30$ GeV");
+	
+	Input meta_data("data/data_preparation/NLA_meta_data.txt");
+	int N{0};
+	double MU{0.0};
+	meta_data.getData >> N;
+	meta_data.getData >> MU;    
+	
+	std::string n_value = std::to_string(N);
+	std::string mu_value = std::to_string(MU);
+	plt::title("NLO BFKL kernel Plot at scale $\\mu = $"+mu_value+" GeV");
 	plt::xlabel("$\\nu$");
-	plt::ylabel("$\\omega(n=0, \\nu)$");
+	plt::ylabel("$\\omega(n="+n_value+", \\nu)$");
 	//plt::text(0.,-0.01, "QUANTAPLUSv1.0");
 	plt::xlim(-10, 10);
 	//plt::ylim(0, 1);
@@ -120,7 +135,7 @@ void plot_LLA_NLA_kernel() {
 	}
 
  
-
+	
 	plt::title("LLO/NLO BFKL kernel Plot at scale $\\mu = 65$ GeV");
 	plt::xlabel("$\\nu$");
 	plt::ylabel("$\\omega(n=0, \\nu)$");

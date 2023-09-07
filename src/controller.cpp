@@ -1,6 +1,7 @@
 #include <iostream>
 #include <cstdlib>
 #include <cstring>
+#include"../include/utilities.h"
 int main(int argc, char* argv[]) {
 	// Check the number of command-line arguments
 	if (argc < 2) {
@@ -31,10 +32,10 @@ int main(int argc, char* argv[]) {
 
 	std::cout << "Enter the value for MuR: ";
 	std::cin >> MuR;
-
-
 	// Compare the command-line argument with a string
 	if (strcmp(argv[1], "LLA") == 0) {
+	       Output meta_data("data/data_preparation/LLA_meta_data.txt"); 
+		meta_data.takeData <<n <<"\t"<<MuR<<std::endl;
 		std::cout << "Mode LLA selected." << std::endl;
 		std::string command = "python3 python/LLA_bfkl_controller.py " +
 				  std::to_string(n) + " " +
@@ -50,6 +51,8 @@ int main(int argc, char* argv[]) {
 			std::cerr << "Error: Failed to execute Python script." << std::endl;
 		    }
 	} else if (strcmp(argv[1], "NLA") == 0) {
+	 	Output meta_data("data/data_preparation/NLA_meta_data.txt"); 
+		meta_data.takeData <<n <<"\t"<<MuR<<std::endl;
 		std::cout << "Mode NLA selected." << std::endl;
 		std::string command = "python3 python/NLA_bfkl_controller.py " +
 			          std::to_string(n) + " " +
