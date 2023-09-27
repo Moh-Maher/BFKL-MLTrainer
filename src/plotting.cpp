@@ -14,16 +14,47 @@ int main()
 	std::cin >> choice;	
     
 	if (choice == 1) {
-	      	plot_LLA_output();
+		std::cout << "1. Analytic results" << std::endl;
+		std::cout << "2. Model predictions" << std::endl;
+		std::cin >> choice;
+		if(choice ==1){
+	      		plot_LLA_Analytic_output();
+	      	} else if (choice==2){
+	      		plot_LLA_output();
+	      	}else{
+      	        	std::cout << "Invalid choice. Please enter 1 or 2." << std::endl;
+	      	}
 
     	} 
     
 	else if (choice == 2) {
-		plot_NLA_output();
+		std::cout << "1. Analytic results" << std::endl;
+		std::cout << "2. Model predictions" << std::endl;
+		std::cin >> choice;
+		if(choice ==1){
+	      		plot_NLA_Analytic_output();
+	      	} else if (choice==2){
+	      		plot_NLA_output();
+	      	}else{
+      	        	std::cout << "Invalid choice. Please enter 1 or 2." << std::endl;
+	      	}
 		 
 	} 
 	else if(choice==3){
-		plot_LLA_NLA_kernel();
+		/*std::cout << "1. Analytic results" << std::endl;
+		std::cout << "2. Model predictions" << std::endl;
+		std::cin >> choice;
+		if(choice ==1){
+	      		plot_NLA_comparison();
+	      		plot_LLA_comparison();
+	      	} else if (choice==2){
+	      		plot_LLA_NLA_kernel();
+	      	}else{
+      	        	std::cout << "Invalid choice. Please enter 1 or 2." << std::endl;
+	      	}*/
+	      	plot_NLA_comparison();
+	      	plot_LLA_comparison();
+	
 	}
 	else {
         	std::cout << "Invalid choice. Please enter 1 or 2." << std::endl;
